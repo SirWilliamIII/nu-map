@@ -1,0 +1,95 @@
+{
+  "vets": [
+    {
+      "id": 1,
+      "company": "K & R Consulting",
+      "street": "1820 Co Rd 222",
+      "city": "Tow",
+      "state": "TX",
+      "zipcode": 78672,
+      "lastInspection": "10/12/17",
+      "position": {
+        "lat": 30.2572,
+        "lng": -97.9431
+      }
+    },
+    {
+      "id": 2,
+      "company": "Fall Creek",
+      "street": "1820 Co Rd 222",
+      "city": "Tow",
+      "state": "TX",
+      "zipcode": 78672,
+      "lastInspection": "8/2/17",
+      "position": {
+        "lat": 32.7767,
+        "lng": -96.7970
+      }
+    },
+    {
+      "id": 3,
+      "company": "Clients First",
+      "street": "1000 Ballpark Way #315",
+      "city": "Arlington",
+      "state": "TX",
+      "zipcode": 76011,
+      "lastInspection": "4/8/17",
+      "position": {
+        "lat": 30.3072,
+        "lng": -97.6931
+      }
+    },
+    {
+      "id": 4,
+      "company": "Chosen Foods",
+      "street": "1747 Hancock St.",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": 78704,
+      "lastInspection": "10/12/17",
+      "position": {
+        "lat": 30.2972,
+        "lng": -97.8931
+      }
+    },
+    {
+      "id": 5,
+      "company": "Dataquest",
+      "street": "123 Main St",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "10/12/17",
+      "position": {
+        "lat": 30.3572,
+        "lng": -97.9531
+      }
+    },
+    {
+      "id": 6,
+      "company": "Firewire",
+      "street": "456 Main St",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": 78704,
+      "lastInspection": "10/12/17",
+      "position": {
+        "lat": 30.2672,
+        "lng": -97.9631
+      }
+    },
+    {
+      "id": 7,
+      "company": "Chosen Foods",
+      "street": "123 Main St",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "10/12/17",
+      "position": {
+        "lat": 30.3572,
+        "lng": -97.9531
+      }
+    }
+  ]
+}
