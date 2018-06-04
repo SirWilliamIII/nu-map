@@ -35,7 +35,7 @@ class MapContainer extends Component {
 		})
 	}
 
-	onWindowClose = (props, marker, e) => {
+	onWindowClose = () => {
 		this.setState({
 			showingInfoWindow: false
 		})
@@ -52,6 +52,7 @@ class MapContainer extends Component {
 			lastInspection={ marker.lastInspection }
 			onClick={ this.onMarkerClick }
 			name={ marker.name }
+			icon={'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'}
 			position={ marker.position }/>
 	}
 
@@ -60,19 +61,6 @@ class MapContainer extends Component {
 			return this.createMarker(marker)
 		})
 	}
-	// filterByCompanyName(name) {
-	// 	this.state.displayedMarkers.push(this.createAllMarkers(data.vets).filter(vet => vet.props.company === name))
-	// }
-	//
-	// filterByLastInspectionDate(date) {
-	// 	this.state.displayedMarkers.push(this.createAllMarkers(data.vets).filter(vet => vet.props.lastInspection ===
-	// date)) }  filterByCity(city) { this.state.displayedMarkers.push(this.createAllMarkers(data.vets).filter(vet =>
-	// vet.props.city === city)) }  secondFilterByCompanyName(filter1, name) {
-	// this.state.displayedMarkers.push(filter1.filter(n => n.props.company === name)) }
-	// secondFilterByLastInspectionDate(filter1, date) { this.state.displayedMarkers.push(filter1.filter(n =>
-	// n.props.lastInspection === date)) }  secondFilterByCity(filter1, city) {
-	// this.state.displayedMarkers.push(filter1.filter(n => n.props.city === city)) }  filterByNameAndCity(name, city)
-	// { this.state.displayedMarkers.push(this.filterByCompanyName(name).filter(n => n.props.city === city)) }
 
 	render() {
 		return (
