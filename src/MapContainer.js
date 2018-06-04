@@ -64,17 +64,12 @@ class MapContainer extends Component {
 			blue: '0000ff'
 		}
 
-		let dateArr = marker.lastInspection.split('-')
-		let convertedDate = new Date(dateArr[0], dateArr[1] - 1, dateArr[2])
-		console.log(convertedDate.toDateString())
-
-		let today = new Date()
-		let oneYearAgo = today.setFullYear(today.getFullYear() - 1)
-
-		if(oneYearAgo > convertedDate) {
+		if(marker.city === 'Austin') {
 			color = pin_color.red
-		} else {
+		} else if(marker.city === 'Plano') {
 			color = pin_color.blue
+		} else {
+			color = pin_color.green
 		}
 		return <Marker
 			key={ marker.id }
@@ -82,7 +77,6 @@ class MapContainer extends Component {
 			address={ marker.street + marker.city + marker.state + marker.zipcode }
 			lastInspection={ marker.lastInspection }
 			onClick={ this.onMarkerClick }
-			name={ marker.name }
 			icon={ `http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|${color}` }
 			position={ marker.position }/>
 	}
@@ -116,15 +110,18 @@ class MapContainer extends Component {
 	render() {
 		return (
 			<div>
-				<h3>Search By: </h3>
+				Search By:
 					<div className="form-group">
 						<div className="row">
-							<div className="col-4">
+							<div className="col-md-3 col-lg-3">
 								<input className="form-control" type="text" placeholder="Company Name" value={ this.state.nameInput } onChange={ this.handleNameChange }/>
 							</div>
-							<div className="col-4">
+							<div className="col-md-3 col-lg-3">
 								<input className="form-control" type="text" placeholder="City" value={ this.state.cityInput } onChange={ this.handleCityChange }/>
 							</div>
+							<div className="col-md-3 col-lg-3">
+							    <input className="form-control" type="date" placeholder="mm/dd/yyyy" value={ this.state.dateInputValue} onChange={ this.handleDateChange}/>
+							  </div>
 						</div>
 					</div>
 			<Map

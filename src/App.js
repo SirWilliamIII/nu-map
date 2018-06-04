@@ -9,7 +9,9 @@ class App extends Component {
 			<div className="App">
 				<h1>Nu-Map</h1>
 				<br/>
-				<MapContainer google={ this.props.google }/>
+				<div className="container">
+					<MapContainer google={ this.props.google }/>
+				</div>
 			</div>
 		)
 	}
