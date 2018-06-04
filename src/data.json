@@ -7,7 +7,7 @@
       "city": "Tow",
       "state": "TX",
       "zipcode": 78672,
-      "lastInspection": "10/12/17",
+      "lastInspection": "2017-06-02",
       "position": {
         "lat": 30.2572,
         "lng": -97.9431
@@ -17,39 +17,39 @@
       "id": 2,
       "company": "Fall Creek",
       "street": "1820 Co Rd 222",
-      "city": "Tow",
+      "city": "Amarillo",
       "state": "TX",
       "zipcode": 78672,
-      "lastInspection": "8/2/17",
+      "lastInspection": "2017-06-04",
       "position": {
-        "lat": 32.7767,
-        "lng": -96.7970
+        "lat": 35.4767,
+        "lng": -101.724067
       }
     },
     {
       "id": 3,
       "company": "Clients First",
       "street": "1000 Ballpark Way #315",
-      "city": "Arlington",
+      "city": "Plano",
       "state": "TX",
       "zipcode": 76011,
-      "lastInspection": "4/8/17",
+      "lastInspection": "2018-06-06",
       "position": {
-        "lat": 30.3072,
-        "lng": -97.6931
+        "lat": 33.2104,
+        "lng": -96.893
       }
     },
     {
       "id": 4,
       "company": "Chosen Foods",
       "street": "1747 Hancock St.",
-      "city": "Austin",
+      "city": "Plano",
       "state": "TX",
       "zipcode": 78704,
-      "lastInspection": "10/12/17",
+      "lastInspection": "2018-06-08",
       "position": {
-        "lat": 30.2972,
-        "lng": -97.8931
+        "lat": 33.053999,
+        "lng": -96.4651
       }
     },
     {
@@ -59,7 +59,7 @@
       "city": "Austin",
       "state": "TX",
       "zipcode": 78702,
-      "lastInspection": "10/12/17",
+      "lastInspection": "2018-06-06",
       "position": {
         "lat": 30.3572,
         "lng": -97.9531
@@ -72,10 +72,10 @@
       "city": "Austin",
       "state": "TX",
       "zipcode": 78704,
-      "lastInspection": "10/12/17",
+      "lastInspection": "2018-06-03",
       "position": {
-        "lat": 30.2672,
-        "lng": -97.9631
+        "lat": 30.4972,
+        "lng": -97.6631
       }
     },
     {
@@ -85,10 +85,101 @@
       "city": "Austin",
       "state": "TX",
       "zipcode": 78702,
-      "lastInspection": "10/12/17",
+      "lastInspection": "2018-06-06",
       "position": {
-        "lat": 30.3572,
-        "lng": -97.9531
+        "lat": 30.3072,
+        "lng": -97.7031
+      }
+    },
+    {
+      "id": 8,
+      "company": "Doctor",
+      "street": "123 Main",
+      "city": "Austing",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "2018-06-08",
+      "position": {
+        "lat": 30.248838,
+        "lng": -97.5932
+      }
+    },
+    {
+      "id": 9,
+      "company": "Doctor",
+      "street": "123 Main St",
+      "city": "Amarillo",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "2018-06-08",
+      "position": {
+        "lat": 35.200745,
+        "lng": -101.8333
+      }
+    },
+    {
+      "id": 10,
+      "company": "Doctor",
+      "street": "123 Main St",
+      "city": "Plano",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "2017-06-04",
+      "position": {
+        "lat": 33.04607,
+        "lng": -96.688
+      }
+    },
+    {
+      "id": 11,
+      "company": "Firewire",
+      "street": "123 Main St",
+      "city": "Plano",
+      "state": "TX",
+      "zipcode": 78702,
+      "lastInspection": "2017-06-04",
+      "position": {
+        "lat": 33.017158,
+        "lng": -96.4331
+      }
+    },
+    {
+      "id": 12,
+      "company": "Chosen Foods",
+      "street": "1820 Co Rd 222",
+      "city": "Amarillo",
+      "state": "TX",
+      "zipcode": 78672,
+      "lastInspection": "2017-06-04",
+      "position": {
+        "lat": 34.7767,
+        "lng": -102.724067
+      }
+    },
+    {
+      "id": 13,
+      "company": "Firewire",
+      "street": "1820 Co Rd 222",
+      "city": "Amarillo",
+      "state": "TX",
+      "zipcode": 78672,
+      "lastInspection": "2017-06-04",
+      "position": {
+        "lat": 35.009753,
+        "lng": -101.7240
+      }
+    },
+    {
+      "id": 14,
+      "company": "Dataquest",
+      "street": "1820 Co Rd 222",
+      "city": "Amarillo",
+      "state": "TX",
+      "zipcode": 78672,
+      "lastInspection": "2017-06-04",
+      "position": {
+        "lat": 35.1067,
+        "lng": -101.724067
       }
     }
   ]

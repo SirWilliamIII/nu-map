@@ -56,18 +56,34 @@ class MapContainer extends Component {
 	}
 
 	createMarker = marker => {
-		const pin_color = '7ec0ee'
+		let color
+
+		const pin_color = {
+			red: 'ff0000',
+			green: '00ff00',
+			blue: '0000ff'
+		}
+
+		let dateArr = marker.lastInspection.split('-')
+		let convertedDate = new Date(dateArr[0], dateArr[1] - 1, dateArr[2])
+		console.log(convertedDate.toDateString())
+
+		let today = new Date()
+		let oneYearAgo = today.setFullYear(today.getFullYear() - 1)
+
+		if(oneYearAgo > convertedDate) {
+			color = pin_color.red
+		} else {
+			color = pin_color.blue
+		}
 		return <Marker
 			key={ marker.id }
 			company={ marker.company }
-			street={ marker.street }
-			city={ marker.city }
-			state={ marker.state }
-			zipcode={ marker.zipcode }
+			address={ marker.street + marker.city + marker.state + marker.zipcode }
 			lastInspection={ marker.lastInspection }
 			onClick={ this.onMarkerClick }
 			name={ marker.name }
-			icon={ `http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|${pin_color}` }
+			icon={ `http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|${color}` }
 			position={ marker.position }/>
 	}
 
@@ -87,7 +103,7 @@ class MapContainer extends Component {
 
 	displayMarkers = () => {
 		let res
-		if(this.state.nameInput == '' && this.state.cityInput == '') {
+		if(this.state.nameInput === '' && this.state.cityInput === '') {
 			res = this.createAllMarkers(data.vets)
 		} else if(this.state.nameInput){
 			res = this.filterByCompanyName(this.state.nameInput)
@@ -96,7 +112,6 @@ class MapContainer extends Component {
 		}
 		return res
 	}
-
 
 	render() {
 		return (
@@ -137,10 +152,7 @@ class MapContainer extends Component {
 						<h3>Company: { this.state.selectedPlace.company }</h3>
 						<b>Address:</b>
 						<div>
-							{ this.state.selectedPlace.street } &nbsp;
-							{ this.state.selectedPlace.city }, &nbsp;
-							{ this.state.selectedPlace.state } &nbsp;
-							{ this.state.selectedPlace.zipcode }
+							{ this.state.selectedPlace.address }
 						</div>
 						<b>Last Inspection Date:</b>
 						<div>
