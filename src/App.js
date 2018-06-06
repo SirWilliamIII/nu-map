@@ -7,11 +7,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<h1>Nu-Map</h1>
-				<br/>
-				<div className="container">
-					<MapContainer google={ this.props.google }/>
-				</div>
+				<MapContainer google={ this.props.google }/>
 			</div>
 		)
 	}
