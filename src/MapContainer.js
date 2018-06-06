@@ -26,7 +26,6 @@ class MapContainer extends Component {
 				showingInfoWindow: true
 			})
 		}
-		console.log(this.state.selectedPlace)
 	}
 
 	onMapClick = props => {
@@ -75,15 +74,15 @@ class MapContainer extends Component {
 	//////////////////////////////////////////////////////////////////////////
 
 	filterByName = name => {
-		return this.createAllMarkers(data.vets).filter(vet => vet.props.company === name)
+		return this.createAllMarkers(data).filter(vet => vet.props.company === name)
 	}
 
 	filterByCity = city => {
-		return this.createAllMarkers(data.vets).filter(vet => vet.props.city === city)
+		return this.createAllMarkers(data).filter(vet => vet.props.city === city)
 	}
 
 	filterByLastInspectionDate = date => {
-		return this.createAllMarkers(data.vets).filter(vet => vet.props.lastInspection === date)
+		return this.createAllMarkers(data).filter(vet => vet.props.lastInspection === date)
 	}
 
 	filterByNameAndCity = (name, city) => {
@@ -125,7 +124,7 @@ class MapContainer extends Component {
 		if(oneYearAgo >= dateOfLastInspection) {
 			color = pin_color.red
 		} else {
-			color = pin_color.blue
+			color = pin_color.green
 		}
 
 		return <Marker
@@ -154,20 +153,20 @@ class MapContainer extends Component {
 		/* Create Filtered Markers */
 	//////////////////////////////////////////////////////////////////////////
 
-	displayMarkers = () => {
+	displayMarkers = data => {
 		const nameField = this.state.nameInput,
 		      cityField = this.state.cityInput,
 		      dateField = this.state.dateInput
 
 		let shownMarkers
 		if(nameField === '' && cityField === '' && dateField === '') {
-			shownMarkers = this.createAllMarkers(data.vets)
+			shownMarkers = this.createAllMarkers(data)
 		} else if(nameField && cityField === '' && dateField === ''){
-			shownMarkers = this.filterByName(nameField, data.vets)
+			shownMarkers = this.filterByName(nameField, data)
 		} else if(cityField && nameField === '' && dateField === '') {
-			shownMarkers = this.filterByCity(cityField, data.vets)
+			shownMarkers = this.filterByCity(cityField, data)
 		} else if(dateField && nameField === '' && cityField === '') {
-			shownMarkers = this.filterByLastInspectionDate(dateField, data.vets)
+			shownMarkers = this.filterByLastInspectionDate(dateField, data)
 		} else if(nameField && cityField) {
 			shownMarkers = this.filterByNameAndCity(nameField, cityField)
 		} else if(nameField && dateField) {
@@ -192,8 +191,11 @@ class MapContainer extends Component {
 							<div className="col-2">
 								<input className="form-control" type="text" placeholder="City" value={ this.state.cityInput } onChange={ this.handleCityChange }/>
 							</div>
+							<div className="col-2">
+							    <input className="form-control" type="date" placeholder="Date" value={ this.state.dateInput } onChange={ this.handleDateChange}/>
+							</div>
 							<div className="col-3">
-							    <input className="form-control" type="date" placeholder="Date" value={ this.state.dateInput} onChange={ this.handleDateChange}/>
+								will
 							</div>
 						</div>
 					</div>
@@ -207,7 +209,7 @@ class MapContainer extends Component {
 						lng: -100.06
 					} }>
 
-					{ this.displayMarkers() }
+					{ this.displayMarkers(data) }
 
 					<InfoWindow
 						marker={ this.state.activeMarker }
