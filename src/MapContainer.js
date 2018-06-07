@@ -128,7 +128,10 @@ class MapContainer extends Component {
 			color = pin_color.green
 		}
 
-		return <Marker
+
+		const animate = this.props.google.maps.Animation.DROP
+
+		let m = <Marker
 			key={ marker.id }
 			company={ marker.company }
 			street={ marker.street }
@@ -138,9 +141,14 @@ class MapContainer extends Component {
 			lastInspection={ marker.lastInspection }
 			onClick={ this.onMarkerClick }
 			name={ marker.name }
+			animation={ animate }
 			icon={ `http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|${color}` }
 			position={ marker.position }
+
 			image={ marker.imageUrl }/>
+
+			console.log(this.props)
+			return m
 	}
 
 	createAllMarkers(markers) {
