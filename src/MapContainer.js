@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import data from './data.json'
 import { Map, Marker, InfoWindow } from 'google-maps-react'
+import Form from './Form'
 
 
 class MapContainer extends Component {
@@ -183,22 +184,14 @@ class MapContainer extends Component {
 		return (
 			<div className="container-fluid">
 				<h3>Filter by fields:</h3>
-					<div className="form-group">
-						<div className="row">
-							<div className="col-2">
-								<input className="form-control" type="text" placeholder="Name" value={ this.state.nameInput } onChange={ this.handleNameChange }/>
-							</div>
-							<div className="col-2">
-								<input className="form-control" type="text" placeholder="City" value={ this.state.cityInput } onChange={ this.handleCityChange }/>
-							</div>
-							<div className="col-2">
-							    <input className="form-control" type="date" placeholder="Date" value={ this.state.dateInput } onChange={ this.handleDateChange}/>
-							</div>
-							<div className="col-3">
-								will
-							</div>
-						</div>
-					</div>
+					<Form
+		                nameInput={this.state.nameInput }
+		                cityInput={ this.state.cityInput }
+		                dateInput={ this.state.dateInput }
+		                nameChanged={ this.handleNameChange }
+		                cityChanged={ this.handleCityChange }
+		                dateChanged={ this.handleDateChange }
+		              />
 				<Map
 					google={ this.props.google }
 					style={ { width: '70%', height: '80%' } }
