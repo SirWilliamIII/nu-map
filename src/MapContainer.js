@@ -74,6 +74,7 @@ class MapContainer extends Component {
 		/* Filters */
 	//////////////////////////////////////////////////////////////////////////
 
+
 	filterByName = name => {
 		return this.createAllMarkers(data).filter(vet => vet.props.company === name)
 	}
@@ -193,12 +194,12 @@ class MapContainer extends Component {
 			<div className="container-fluid">
 				<h3>Filter by fields:</h3>
 					<Form
-		                nameInput={this.state.nameInput }
-		                cityInput={ this.state.cityInput }
-		                dateInput={ this.state.dateInput }
-		                nameChanged={ this.handleNameChange }
-		                cityChanged={ this.handleCityChange }
-		                dateChanged={ this.handleDateChange }
+		                name={this.state.nameInput }
+		                city={ this.state.cityInput }
+		                date={ this.state.dateInput }
+		                nameHandler={ this.handleNameChange }
+		                cityHandler={ this.handleCityChange }
+		                dateHandler={ this.handleDateChange }
 		              />
 				<Map
 					google={ this.props.google }
