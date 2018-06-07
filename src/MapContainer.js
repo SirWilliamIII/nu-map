@@ -19,7 +19,7 @@ class MapContainer extends Component {
 		/* State handlers */
 	//////////////////////////////////////////////////////////////////////////
 
-	onMarkerClick = (props, marker, e) => {
+	onMarkerClick = (props, marker) => {
 		if(this.state.selectedPlace) {
 			this.setState({
 				selectedPlace:     props,
@@ -45,7 +45,7 @@ class MapContainer extends Component {
 		})
 	}
 
-	onWindowClose = (props, marker, e) => {
+	onWindowClose = () => {
 		this.setState({
 			showingInfoWindow: false
 		})
@@ -110,9 +110,9 @@ class MapContainer extends Component {
 
 	createMarker = marker => {
 		const pin_color = {
-			red: 'ff0000',
-			green: '00ff00',
-			blue: '0000ff'
+			red: 'cc0000',
+			green: '149114',
+			blue: '1414ee'
 		}
 
 		let dateArr = marker.lastInspection.split('-')
@@ -122,17 +122,15 @@ class MapContainer extends Component {
 		let oneYearAgo = today.setFullYear(today.getFullYear() - 1)
 
 		let color
-
 		if(oneYearAgo >= dateOfLastInspection) {
 			color = pin_color.red
 		} else {
 			color = pin_color.green
 		}
 
-
 		const animate = this.props.google.maps.Animation.DROP
 
-		let m = <Marker
+		return <Marker
 			key={ marker.id }
 			company={ marker.company }
 			street={ marker.street }
@@ -147,9 +145,6 @@ class MapContainer extends Component {
 			position={ marker.position }
 
 			image={ marker.imageUrl }/>
-
-			console.log(this.props)
-			return m
 	}
 
 	createAllMarkers(markers) {
@@ -205,7 +200,7 @@ class MapContainer extends Component {
 					google={ this.props.google }
 					style={ { width: '70%', height: '80%' } }
 					onClick={ this.onMapClick }
-					zoom={ 6 }
+					zoom={ 6.33 }
 					initialCenter={ {
 						lat: 31.36,
 						lng: -100.06
@@ -222,19 +217,16 @@ class MapContainer extends Component {
 							<img
 								alt={ '' }
 								src={ this.state.selectedPlace.image }
-								height={ 32 } width={ 32 }/>
-							<h3>Name: { this.state.selectedPlace.company }</h3>
-							<b>Address:</b>
-							<div>
-								{ this.state.selectedPlace.street } &nbsp;
-								{ this.state.selectedPlace.city }, &nbsp;
-								{ this.state.selectedPlace.state } &nbsp;
-								{ this.state.selectedPlace.zipcode }
-							</div>
-							<b>Last Inspection Date:</b>
-							<div>
-								{ this.state.selectedPlace.lastInspection }
-							</div>
+								height={ 40 } width={ 40 }
+							/>
+							<h5>Name:</h5>
+							<p className="lead">{ this.state.selectedPlace.company }</p>
+							<h6>Address:</h6>
+							<p>
+								<b><u>{ this.state.selectedPlace.street + ' ' +  this.state.selectedPlace.city + ', ' + this.state.selectedPlace.state + ' ' + this.state.selectedPlace.zipcode }</u></b>
+							</p>
+							<h6>Last Inspection Date:</h6>
+							<p><b><u>{ this.state.selectedPlace.lastInspection }</u></b></p>
 						</div>
 					</InfoWindow>
 				</Map>
