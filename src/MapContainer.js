@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import data from './data.json'
 import { Map, Marker, InfoWindow } from 'google-maps-react'
 import Form from './Form'
+import axios from 'axios'
+
+// import data from './data.json'
 
 
 class MapContainer extends Component {
@@ -11,7 +13,20 @@ class MapContainer extends Component {
 		selectedPlace:     {},
 		nameInput: '',
 		cityInput: '',
-		dateInput: ''
+		dateInput: '',
+		markers: []
+	}
+
+	componentDidMount() {
+		const url = "http://localhost:3333/data"
+		axios.get(url)
+			.then(res => {
+				this.setState(() => {
+					return {
+						markers: res.data
+					}
+				})
+			})
 	}
 
 
@@ -76,15 +91,15 @@ class MapContainer extends Component {
 
 
 	filterByName = name => {
-		return this.createAllMarkers(data).filter(vet => vet.props.company === name)
+		return this.createAllMarkers(this.state.markers).filter(vet => vet.props.company === name)
 	}
 
 	filterByCity = city => {
-		return this.createAllMarkers(data).filter(vet => vet.props.city === city)
+		return this.createAllMarkers(this.state.markers).filter(vet => vet.props.city === city)
 	}
 
 	filterByLastInspectionDate = date => {
-		return this.createAllMarkers(data).filter(vet => vet.props.lastInspection === date)
+		return this.createAllMarkers(this.state.markers).filter(vet => vet.props.lastInspection === date)
 	}
 
 	filterByNameAndCity = (name, city) => {
@@ -206,7 +221,7 @@ class MapContainer extends Component {
 						lng: -100.06
 					} }>
 
-					{ this.displayMarkers(data) }
+					{ this.displayMarkers(this.state.markers) }
 
 					<InfoWindow
 						marker={ this.state.activeMarker }

@@ -17,7 +17,7 @@ export default class Infowindow extends Component {
 					<img
 						alt={ '' }
 						src={ this.props.image }
-						height={ 32 } width={ 32 }/>
+						height={ 40 } width={ 40 }/>
 					<h3>Name: { this.props.name }</h3>
 					<b>Address:</b>
 					<div>
